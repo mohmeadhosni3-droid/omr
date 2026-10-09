@@ -47,7 +47,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.17;ba
 </section>
 <div class="section-head reveal"><div><div class="eyebrow">THE PRESENTATION</div><h3>استكشف العرض</h3></div><p>استخدم الأسهم للتنقل بين الصفحات</p></div>
 <section class="viewer reveal" aria-label="عارض العرض التقديمي">
-<div class="toolbar"><div class="controls"><button class="btn" id="prev" aria-label="الصفحة السابقة">السابق ←</button><button class="btn primary" id="next" aria-label="الصفحة التالية">→ التالي</button></div><div class="counter" id="counter">01 / 19</div><div class="controls"><button class="btn" id="fullscreen">ملء الشاشة ⛶</button><a class="btn" href="./leadership.pdf" download style="text-decoration:none">تحميل الملف ↓</a></div></div>
+<div class="toolbar"><div class="controls"><button class="btn" id="prev" aria-label="الصفحة السابقة">السابق ←</button><button class="btn primary" id="next" aria-label="الصفحة التالية">→ التالي</button></div><div class="counter" id="counter">01 / 19</div><div class="controls"><button class="btn" id="fullscreen">ملء الشاشة ⛶</button><a class="btn" href="./%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D9%88%D9%8A%D8%A9%20-%20%D8%B3%D8%AA%D8%A7%D9%8A%D9%84%20%D9%83%D9%88%D9%84%D8%A7%D8%AC%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%20(1)_removed.pdf" download style="text-decoration:none">تحميل الملف ↓</a></div></div>
 <div class="progress"><span id="bar"></span></div>
 <div class="canvas" id="canvas">
 <div class="empty" id="empty"><div class="big">✦</div><h4>أضف الملف الأصلي لبدء العرض</h4><p>ارفع ملف PDF الأصلي داخل المستودع بهذا الاسم تمامًا: <code>leadership.pdf</code>. سيعرضه هذا القالب كما هو، بنفس النصوص والتصميم والترتيب، مع أدوات التنقل وتجربة الحركة المحيطة.</p><p>العارض لا يعيد كتابة المحتوى ولا يغيّر ترتيب الصفحات.</p></div>
@@ -57,12 +57,12 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.17;ba
 </div>
 <script>
 const total=19;let page=1;const canvas=document.getElementById('canvas'),counter=document.getElementById('counter'),bar=document.getElementById('bar');
-function update(){counter.textContent=String(page).padStart(2,'0')+' / '+String(total).padStart(2,'0');bar.style.width=(page/total*100)+'%';const frame=document.getElementById('pdf');if(frame){frame.src='./leadership.pdf#page='+page+'&view=FitH';frame.classList.remove('motion');void frame.offsetWidth;frame.classList.add('motion')}}
-function showPage(){let frame=document.getElementById('pdf');if(!frame){canvas.innerHTML='<iframe id="pdf" class="pdfpage motion" title="القيادة التربوية" src="./leadership.pdf#page='+page+'&view=FitH"></iframe>';frame=document.getElementById('pdf')}update()}
+function update(){counter.textContent=String(page).padStart(2,'0')+' / '+String(total).padStart(2,'0');bar.style.width=(page/total*100)+'%';const frame=document.getElementById('pdf');if(frame){frame.src='./%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D9%88%D9%8A%D8%A9%20-%20%D8%B3%D8%AA%D8%A7%D9%8A%D9%84%20%D9%83%D9%88%D9%84%D8%A7%D8%AC%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%20(1)_removed.pdf#page='+page+'&view=FitH';frame.classList.remove('motion');void frame.offsetWidth;frame.classList.add('motion')}}
+function showPage(){let frame=document.getElementById('pdf');if(!frame){canvas.innerHTML='<iframe id="pdf" class="pdfpage motion" title="القيادة التربوية" src="./%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D9%88%D9%8A%D8%A9%20-%20%D8%B3%D8%AA%D8%A7%D9%8A%D9%84%20%D9%83%D9%88%D9%84%D8%A7%D8%AC%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%20(1)_removed.pdf#page='+page+'&view=FitH"></iframe>';frame=document.getElementById('pdf')}update()}
 document.getElementById('next').addEventListener('click',()=>{page=Math.min(total,page+1);showPage()});
 document.getElementById('prev').addEventListener('click',()=>{page=Math.max(1,page-1);showPage()});
 document.getElementById('fullscreen').addEventListener('click',()=>{const target=document.querySelector('.viewer');if(!document.fullscreenElement){target.requestFullscreen?.()}else{document.exitFullscreen?.()}});
 document.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();page=Math.min(total,page+1);showPage()}if(['ArrowRight','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();page=Math.max(1,page-1);showPage()}});
-fetch('./leadership.pdf',{method:'HEAD'}).then(r=>{if(r.ok){document.getElementById('empty')?.remove();showPage()}else update()}).catch(update);update();
+fetch('./%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D9%88%D9%8A%D8%A9%20-%20%D8%B3%D8%AA%D8%A7%D9%8A%D9%84%20%D9%83%D9%88%D9%84%D8%A7%D8%AC%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%20(1)_removed.pdf',{method:'HEAD'}).then(r=>{if(r.ok){document.getElementById('empty')?.remove();showPage()}else update()}).catch(update);update();
 </script>
 </body></html>
